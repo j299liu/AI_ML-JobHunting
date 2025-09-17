@@ -1,0 +1,17 @@
+name: JobHunting
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - feedparser
+  - beautifulsoup4
+  - requests
+  - pydantic
+  - python-dateutil
+  - dateparser
+  - pandas
+  - duckdb
+  - rapidfuzz
+  - pyyaml
+  - tqdm

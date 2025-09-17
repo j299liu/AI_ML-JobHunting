@@ -1,0 +1,32 @@
+timezone: "Europe/London"
+
+# 1) RSS feeds (exported from Google Alerts as RSS, plus any ATS/company feeds)
+rss_feeds:
+  - "https://www.google.com/alerts/feeds/15937600743486598571/379441454725237454"   # Apprenticeship/Trainee (Newcastle)
+
+# 2) Your skills for fit scoring (keep concise)
+candidate_profile:
+  skills:
+    - "Python"
+    - "PyTorch"
+    - "RAG"
+    - "Azure"
+    - "LangChain"
+    - "HaggingFace"
+    - "Vector databases"
+  locations_ok:
+    - "Remote UK"
+    - "Newcastle"
+
+# 3) Filters
+exclude_terms:
+  - "BI Analyst"
+  - "Contract 1 month"
+  - "Recruitment Agency"
+min_score_to_notify: 65
+
+# 4) LLM provider (stubbed)
+llm:
+  provider: "openai"
+  model: "gpt-4o-mini"
+  api_key_env: "OPENAI_API_KEY"
