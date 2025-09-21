@@ -1,7 +1,7 @@
 from typing import Dict, Tuple
 from rapidfuzz import fuzz
 
-# Keyword map adapted from the article’s clusters (trim/add as needed)
+# Keyword map adapted from the article’s clusters {keys, values(tuple of two sets{keywords}, {tech stack})}
 CLUSTERS: Dict[str, Tuple[set, set]] = {
     "LLM/NLP": ({"LLM","NLP","Generative","Transformers","Hugging Face","RAG","LoRA","vLLM"}, {"PyTorch","JAX","TensorFlow"}),
     "Vision": ({"Computer Vision","Perception","OpenCV","segmentation","detection","TensorRT","OpenVINO"}, {"PyTorch","TensorFlow"}),
@@ -11,6 +11,7 @@ CLUSTERS: Dict[str, Tuple[set, set]] = {
     "Distributed/Perf": ({"CUDA","DeepSpeed","FSDP","ZeRO","NCCL","mixed precision","Triton","XLA"}, set()),
     "Research": ({"pretraining","fine-tuning","benchmark","SOTA","open source"}, {"PyTorch","JAX"}),
     "Edge": ({"ONNX","TensorRT-LLM","OpenVINO","Core ML","TFLite","quantisation","pruning"}, set()),
+    "Trainee": ({"Trainee","Apprenticeship","Internship","Graduate","Junior"}, set())
 }
 
 def assign_cluster(text: str) -> str:
@@ -20,7 +21,7 @@ def assign_cluster(text: str) -> str:
         s = sum(1 for k in kw if k.lower() in t)
         if s > score:
             best, score = c, s
-    return best or "Other"
+    return best or "None"
 
 def score_fit(text: str, profile_skills: list, locations_ok: list) -> float:
     t = text.lower()
